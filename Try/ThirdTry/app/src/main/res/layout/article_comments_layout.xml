@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="data"
+            type="com.example.thirdtry.model.Comment" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:elevation="0dp"
+        app:cardCornerRadius="9dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="@color/color_gray_translucent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="15sp"
+                android:textColor="@color/color_lighter_gray"
+                android:maxLines="3"
+                android:ellipsize="end"
+                android:text="@{data.content}" />
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/color_lighter_gray"
+                android:textSize="12sp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                app:layout_constraintTop_toBottomOf="@id/content"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@{data.userName}" />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="8dp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textColor="@color/color_lighter_gray"
+                android:text="@{data.time}"
+                app:layout_constraintTop_toBottomOf="@id/username"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="12sp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
